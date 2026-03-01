@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { start } = require("repl");
 
 // ============================================================
 // Function 1: getShiftDuration(startTime, endTime)
@@ -7,7 +8,13 @@ const fs = require("fs");
 // Returns: string formatted as h:mm:ss
 // ============================================================
 function getShiftDuration(startTime, endTime) {
-    // TODO: Implement this function
+    const startSeconds = convertToSeconds(startTime);
+    const endSeconds = convertToSeconds(endTime);
+    let shiftDuration = 0;
+
+    shiftDuration = endSeconds - startSeconds;
+
+    return convertToHMS(shiftDuration);
 }
 
 // ============================================================
